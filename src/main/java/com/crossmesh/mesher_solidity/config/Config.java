@@ -1,4 +1,4 @@
-package com.crossmesh.mesher_solidity;
+package com.crossmesh.mesher_solidity.config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -6,14 +6,17 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 @ConfigurationProperties(prefix = "mesher")
 public class Config {
 
-    @Value("${mesher.meta-network-name}")
+    @Value("mesher.meta-network-name")
     private String metaNetwork;
 
-    @Value("${mesher.self-network-name}")
+    @Value("mesher.self-network-name")
     private String selfNetwork;
 
-    @Value("${mesher.meta-chain.type}")
+    @Value("mesher.meta-chain.type")
     private String metaChainType;
+
+    @Value("mesher.coordinator.cross-monitor-thread-num")
+    private int crossMonitorThreadNum;
 
 
     public String getMetaNetwork() {
@@ -40,4 +43,11 @@ public class Config {
         this.metaChainType = metaChainType;
     }
 
+    public int getCrossMonitorThreadNum() {
+        return crossMonitorThreadNum;
+    }
+
+    public void setCrossMonitorThreadNum(int crossMonitorThreadNum) {
+        this.crossMonitorThreadNum = crossMonitorThreadNum;
+    }
 }

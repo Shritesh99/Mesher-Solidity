@@ -1,26 +1,25 @@
 plugins {
-	id 'org.springframework.boot' version '2.6.0-SNAPSHOT'
-	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
-	id 'java'
+    id 'org.springframework.boot' version '2.5.6'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'java'
 }
 
-group = 'com.crossmesh.mesher-solidity'
+group = 'com.example.meshers_solidity'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '17'
 
 repositories {
-	mavenCentral()
-	jcenter()
-	maven { url 'https://repo.spring.io/milestone' }
-	maven { url 'https://repo.spring.io/snapshot' }
+    mavenCentral()
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-web'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	implementation 'org.web3j:web3j-spring-boot-starter:4.0.3'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    annotationProcessor "org.springframework.boot:spring-boot-configuration-processor"
+    implementation 'org.web3j:core:4.8.7'
+    implementation 'com.google.code.gson:gson'
 }
 
 test {
-	useJUnitPlatform()
+    useJUnitPlatform()
 }
